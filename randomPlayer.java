@@ -2,7 +2,7 @@ import java.io.IOException;
 
 public class randomPlayer extends Player {
 
-  public randomPlayer(name, mark) {
+  public randomPlayer(String name, char mark) {
 
     super(name, mark);
   }
@@ -42,8 +42,8 @@ public class randomPlayer extends Player {
     while(true) {
       row = rand.discrete(0, 2);
       col = rand.discrete(0, 2);
-      if (board.getMark(row, col) = ' ') {
-        board.addMark(row, col);
+      if (board.getMark(row, col) == ' ') {
+        board.addMark(row, col, mark);
         return;
       }
     }

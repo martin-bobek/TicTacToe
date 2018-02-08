@@ -31,7 +31,7 @@ public class HumanPlayer extends Player {
 		else if (board.isFull())
 			System.out.println("\nTHE GAME IS OVER: The game is a tie!");
 		else {
-			makeMove(check);
+			makeMove();
 			board.display();
 			return false;
 		}
