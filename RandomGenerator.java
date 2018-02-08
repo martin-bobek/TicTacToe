@@ -6,7 +6,7 @@ import java.util.Random;
 class RandomGenerator {
 
 /**
- * creates a random number ranging between lo and hi,  
+ * creates a random number ranging between lo and hi,
  * @param lo
  * @param hi
  * @return
@@ -17,10 +17,9 @@ class RandomGenerator {
 			System.out.println("Error discrete, lo >= hi");
 			System.exit(0);
 		}
-		
+
 		Random r = new Random();
 		int d = r.nextInt(hi - lo + 1) + lo;
 		return d;
 	}
-	
 }
