@@ -36,7 +36,34 @@ public abstract class Player implements Constants {
 		this.mark = mark;
 	}
 	
-	abstract protected boolean play() throws IOException;
+	/**
+	 * Makes the player place a mark. Before allowing the player to make a move, it checks if either player has won, or if the board is full. If either is true, it
+	 * prints out that the game has ended.
+	 * @return Returns true if the game has ended. Otherwise it return false.
+	 * @throws IOException Thrown when text input from console fails.
+	 */
+	protected boolean play() throws IOException {
+		if (board.xWins()) {
+			if (mark == LETTER_X)
+				System.out.println("\nTHE GAME IS OVER: " + name + " is the winner!");
+			else
+				System.out.println("\nTHE GAME IS OVER: " + opponent.name + " is the winner!");
+		}
+		else if (board.oWins()) {
+			if (mark == LETTER_O)
+				System.out.println("\nTHE GAME IS OVER: " + name + " is the winner!");
+			else
+				System.out.println("\nTHE GAME IS OVER: " + opponent.name + " is the winner!");
+		}
+		else if (board.isFull())
+			System.out.println("\nTHE GAME IS OVER: The game is a tie!");
+		else {
+			makeMove();
+			board.display();
+			return false;
+		}
+		return true;
+	}
 	
 	abstract protected void makeMove() throws IOException;
 	
